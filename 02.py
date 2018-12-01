@@ -15,7 +15,7 @@ def hello(name):
     return render_template("hello.html", name=name)
 
 
-@app.route("/omikuji/")
+@app.route("/omikuji")
 def omikuji():
     fortune = [ "大吉", "吉", "凶" ]
     chose = random.randint(0, 2)
@@ -27,6 +27,13 @@ def omikuji():
 def dice():
     result = random.choice([ 1, 2, 3, 4, 5, 6 ])
     return render_template("dice.html", result=result)
+
+
+@app.route("/members")
+def members():
+    members = [ "Bob", "Tom", "Ken" ]
+    return render_template("members.html", members=members)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
