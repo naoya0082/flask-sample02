@@ -1,5 +1,6 @@
-from flask import Flask, render_template
 import random
+
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -14,7 +15,7 @@ def hello(name):
     return render_template("hello.html", name=name)
 
 
-@app.route("/omikuji")
+@app.route("/omikuji/")
 def omikuji():
     fortune = [ "大吉", "吉", "凶" ]
     chose = random.randint(0, 2)
