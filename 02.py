@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import random
 
 app = Flask(__name__)
 
@@ -12,6 +13,13 @@ def index():
 def hello(name):
     return render_template("hello.html", name=name)
 
+
+@app.route("/omikuji/")
+def omikuji():
+    fortune = [ "大吉", "吉", "凶" ]
+    chose = random.randint(0, 2)
+    result = fortune[ chose ]
+    return render_template("omikuji.html", omikuji=result)
 
 if __name__ == "__main__":
     app.run(debug=True)
